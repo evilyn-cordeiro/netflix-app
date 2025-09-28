@@ -4,7 +4,6 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  FlatList,
   SafeAreaView,
   ScrollView,
 } from "react-native";
@@ -12,6 +11,8 @@ import { Picker } from "@react-native-picker/picker";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./home.styles";
 import BottomNavigation from "@/src/components/nav/nav.component";
+import { carouselsData } from "@/src/utils/banners";
+import { Carousel } from "@/src/components";
 
 type Tab = "TV SHOWS" | "MOVIES" | "CATEGORIES";
 
@@ -19,31 +20,6 @@ const tabs: Tab[] = ["TV SHOWS", "MOVIES"];
 const categories = ["ACTION", "COMEDY", "DRAMA"];
 
 const featuredBanner = require("../../../assets/banner.jpg");
-
-const carouselsData = {
-  "TV SHOWS": [
-    { id: "1", title: "Show 1", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Show 2", image: require("../../../assets/movie.png") },
-  ],
-  MOVIES: [
-    { id: "1", title: "Movie 1", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Movie 2", image: require("../../../assets/movie.png") },
-  ],
-  CATEGORIES: [
-    { id: "1", title: "Cat 1", image: require("../../../assets/movie.png") },
-    { id: "2", title: "Cat 2", image: require("../../../assets/movie.png") },
-  ],
-};
 
 export default function HomeScreen() {
   const [selectedTab, setSelectedTab] = useState<Tab>("TV SHOWS");
@@ -108,7 +84,6 @@ export default function HomeScreen() {
           </Picker>
         </View>
 
-        {/* BANNER */}
         <View style={styles.bannerContainer}>
           <Image
             source={featuredBanner}
@@ -131,21 +106,9 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* CARROSSEL */}
-        <FlatList
-          data={carouselsData[selectedTab]}
-          keyExtractor={(item) => item.id}
-          horizontal
-          contentContainerStyle={{ paddingBottom: 80 }}
-          showsHorizontalScrollIndicator={false}
-          style={styles.carousel}
-          renderItem={({ item }) => (
-            <View style={styles.carouselItem}>
-              <Image source={item.image} style={styles.carouselImage} />
-              <Text style={styles.carouselTitle}>{item.title}</Text>
-            </View>
-          )}
-        />
+        <Carousel title="Trending Now" data={carouselsData[selectedTab]} />
+
+        <Carousel title="New Releases" data={carouselsData[selectedTab]} />
       </ScrollView>
 
       <BottomNavigation activeTab={activeTab} onTabPress={setActiveTab} />
