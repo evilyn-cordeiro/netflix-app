@@ -10,17 +10,18 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
   },
   logo: {
-    width: 100,
+    width: 30,
     height: 30,
     resizeMode: "contain",
   },
   headerRight: {
     flexDirection: "row",
+    gap: 15,
     alignItems: "center",
   },
   avatar: {
-    width: 32,
-    height: 32,
+    width: 25,
+    height: 25,
   },
   tabNav: {
     flexDirection: "row",
@@ -63,22 +64,22 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   bannerImage: {
-    width: "80%",
+    width: "90%",
     height: 450,
-    borderRadius: 10,
+    borderRadius: 4,
     marginBottom: 10,
   },
   bannerButtons: {
     flexDirection: "row",
     justifyContent: "space-around",
+    gap: 14,
   },
   bannerButton: {
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "#333",
     paddingVertical: 8,
     paddingHorizontal: 15,
-    borderRadius: 5,
+    borderRadius: 2,
   },
   bannerButtonText: {
     color: "#fff",
@@ -88,10 +89,10 @@ export const styles = StyleSheet.create({
   playButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#e50914",
+    backgroundColor: "#fff",
     paddingVertical: 8,
     paddingHorizontal: 20,
-    borderRadius: 5,
+    borderRadius: 2,
   },
   playButtonText: {
     color: "#000",

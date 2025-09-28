@@ -65,13 +65,13 @@ export default function HomeScreen() {
             style={styles.logo}
           />
           <View style={styles.headerRight}>
+            <TouchableOpacity style={{ marginLeft: 15 }}>
+              <Ionicons name="search" size={24} color="#fff" />
+            </TouchableOpacity>
             <Image
               source={require("../../../assets/profile-photo-1.png")}
               style={styles.avatar}
             />
-            <TouchableOpacity style={{ marginLeft: 15 }}>
-              <Ionicons name="search" size={24} color="#fff" />
-            </TouchableOpacity>
           </View>
         </View>
 
